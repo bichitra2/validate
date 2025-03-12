@@ -1,0 +1,15 @@
+import subprocess
+import time
+
+# Define your cURL command (update this with your actual Postman request)
+curl_command = "curl -X POST https://example.com/api -H 'Content-Type: application/json' -d '{"key": "value"}'"
+
+# Number of times to execute the request
+num_requests = 100
+
+for i in range(num_requests):
+    print(f"Executing request {i+1}/{num_requests}")
+    result = subprocess.run(curl_command, shell=True, capture_output=True, text=True)
+    print("Response:", result.stdout)
+    print("Error:", result.stderr)
+    time.sleep(1)  # Optional delay between requests
